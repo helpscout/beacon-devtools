@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#000000" />
     <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -22,10 +25,31 @@
     <title>React App</title>
   </head>
   <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
+    <noscript> You need to enable JavaScript to run this app. </noscript>
     <div id="root"></div>
+    <script type="text/javascript">
+      !(function(e, t, n) {
+        function a() {
+          var e = t.getElementsByTagName("script")[0],
+            n = t.createElement("script");
+          (n.type = "text/javascript"),
+            (n.async = !0),
+            (n.src = "https://beacon-v2.helpscout.net"),
+            e.parentNode.insertBefore(n, e);
+        }
+        if (
+          ((e.Beacon = n = function(t, n, a) {
+            e.Beacon.readyQueue.push({ method: t, options: n, data: a });
+          }),
+          (n.readyQueue = []),
+          "complete" === t.readyState)
+        )
+          return a();
+        e.attachEvent
+          ? e.attachEvent("onload", a)
+          : e.addEventListener("load", a, !1);
+      })(window, document, window.Beacon || function() {});
+    </script>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
