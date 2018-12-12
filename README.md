@@ -11,6 +11,8 @@
 
 - [Installation](#installation)
 - [Usage](#usage)
+  - [Development](#development)
+  - [In Browser](#in-browser)
 - [Demo](#demo)
 - [Check out Beacon](#check-out-beacon)
 
@@ -23,6 +25,8 @@ npm install --save-dev @helpscout/beacon-devtools
 ```
 
 ## Usage
+
+### Development
 
 ```jsx
 import React from 'react'
@@ -38,6 +42,30 @@ class MyApp extends React.Component {
     )
   }
 }
+```
+
+### In Browser
+
+To add Beacon DevTools to your page, copy/paste the following snippet into your HTML:
+
+```html
+<script src="https://unpkg.com/@helpscout/beacon-devtools/dist/beacon-devtools.umd.js"></script>
+```
+
+Alternatively, you can add this snippet:
+
+```html
+<script>
+  ;(function() {
+    var u =
+      'https://unpkg.com/@helpscout/beacon-devtools/dist/beacon-devtools.umd.js'
+    var s = document.createElement('script')
+    s.type = 'text/javascript'
+    s.charset = 'utf-8'
+    s.src = u
+    document.body.appendChild(s)
+  })()
+</script>
 ```
 
 ## Demo
