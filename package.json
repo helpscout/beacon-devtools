@@ -17,6 +17,12 @@
     "version": "npm run build",
     "release": "np --yolo --no-cleanup"
   },
+  "keywords": [
+    "beacon",
+    "help scout",
+    "helpscout",
+    "dev"
+  ],
   "files": [
     "README.md",
     "LICENSE",
@@ -49,5 +55,13 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-scripts": "2.1.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/helpscout/beacon-devtool.git"
+  },
+  "bugs": {
+    "url": "https://github.com/helpscout/beacon-devtool/issues"
+  },
+  "license": "MIT"
 }

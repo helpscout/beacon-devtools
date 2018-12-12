@@ -26,7 +26,7 @@ npm install --save-dev @helpscout/beacon-devtools
 
 ```jsx
 import React from 'react'
-import BeaconDevTools from '@helpscout/beacon-devtools
+import BeaconDevTools from '@helpscout/beacon-devtools'
 
 class MyApp extends React.Component {
   render() {
