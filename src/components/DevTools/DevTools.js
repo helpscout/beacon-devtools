@@ -71,7 +71,7 @@ export class DevTools extends React.PureComponent {
 
     return (
       <Rnd
-        cancel="input, .ColorPicker *, .c-Switch"
+        cancel="input, .ColorPicker *, .c-Switch, select"
         default={{
           x: 40,
           y: 40,
