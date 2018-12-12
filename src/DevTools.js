@@ -1,6 +1,6 @@
 import React from 'react'
 import App from './components/App'
-import {loadState} from './utils'
+import {loadState, asyncOnBeaconReady} from './utils'
 import store from './store'
 
 export class DevTools extends React.Component {
@@ -12,15 +12,20 @@ export class DevTools extends React.Component {
     const localState = loadState()
 
     this.setState({...localState}, () => {
-      // const {open, ...rest} = localState
       store.setState(localState)
     })
   }
 
   componentDidMount() {
-    this.setState({
-      isReady: true,
-    })
+    asyncOnBeaconReady()
+      .then(() => {
+        this.setState({
+          isReady: true,
+        })
+      })
+      .catch(() => {
+        console.log('Beacon DevTools: Could not locate Beacon!')
+      })
   }
 
   render() {

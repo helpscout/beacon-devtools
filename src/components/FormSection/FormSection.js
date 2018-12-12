@@ -22,6 +22,10 @@ const FormSectionUI = styled('section')`
   &:first-child {
     margin-top: 0;
   }
+
+  &:last-child {
+    border-bottom: none;
+  }
 `
 
 const HeaderUI = styled('header')`

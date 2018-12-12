@@ -3,8 +3,10 @@ import createStore from '@helpscout/wedux'
 const store = createStore({
   beaconId: '',
   open: false,
+  chatEnabled: true,
   docsEnabled: true,
   messagingEnabled: true,
+  showGetInTouch: true,
   displayText: 'Hello',
   style: 'icon',
   iconImage: 'message',

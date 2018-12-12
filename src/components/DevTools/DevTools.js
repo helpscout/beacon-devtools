@@ -1,9 +1,14 @@
 import React from 'react'
 import {connect} from '@helpscout/wedux'
 import {
+  logout,
+  resetBeacon,
+  toggleChat,
   toggleDocs,
   toggleMessaging,
   toggleOpen,
+  toggleShowGetInTouch,
+  navigateToRoute,
   openBeacon,
   closeBeacon,
   updateBeaconId,
@@ -15,6 +20,7 @@ import {
   updateStyle,
   updateSizePosition,
 } from '../../actions'
+import Button from '../Button'
 import Label from '../Label'
 import ColorPicker from '../ColorPicker'
 import ResizeAndDrag from '../ResizeAndDrag'
@@ -22,12 +28,11 @@ import FormSection from '../FormSection'
 import ToggleGroup from '../ToggleGroup'
 import Input from '../Input'
 import Select from '../Select'
-import {FrameUI, DevToolsUI, HeaderUI} from './DevTools.css'
+import {FrameUI, DevToolsUI, HeaderUI, FooterUI} from './DevTools.css'
 
 export class DevTools extends React.PureComponent {
   static defaultProps = {
     beaconId: '',
-    loadTimeout: 600,
     toggleDocs: () => undefined,
     toggleMessaging: () => undefined,
     toggleOpen: () => undefined,
@@ -41,11 +46,9 @@ export class DevTools extends React.PureComponent {
   }
 
   componentDidMount() {
-    setTimeout(() => {
-      window.Beacon('on', 'open', this.props.openBeacon)
-      window.Beacon('on', 'close', this.props.closeBeacon)
-      window.Beacon('open')
-    }, this.props.loadTimeout)
+    window.Beacon('on', 'open', this.props.openBeacon)
+    window.Beacon('on', 'close', this.props.closeBeacon)
+    window.Beacon('open')
   }
 
   componentWillUnmount() {
@@ -55,13 +58,20 @@ export class DevTools extends React.PureComponent {
 
   render() {
     const {
+      chatEnabled,
       displayText,
       docsEnabled,
       isOpen,
+      logout,
       messagingEnabled,
+      navigateToRoute,
+      resetBeacon,
+      showGetInTouch,
+      toggleChat,
       toggleDocs,
       toggleMessaging,
       toggleOpen,
+      toggleShowGetInTouch,
       updateBeaconId,
       updateColor,
       updateDisplayText,
@@ -75,19 +85,12 @@ export class DevTools extends React.PureComponent {
     return (
       <ResizeAndDrag>
         <FrameUI>
-          <HeaderUI>Beacon DevTools</HeaderUI>
+          <HeaderUI>
+            Beacon DevTools
+            <Input onKeyUp={updateBeaconId} placeholder="Beacon ID" />
+          </HeaderUI>
           <DevToolsUI>
             <div>
-              <FormSection>
-                <Label>
-                  Beacon ID
-                  <Input
-                    onKeyUp={updateBeaconId}
-                    placeholder="Example: 1234a123-a1b2-12a1-ab12-a123b1234123"
-                  />
-                </Label>
-              </FormSection>
-
               <FormSection title="Interactions">
                 <ToggleGroup
                   label="Open"
@@ -95,17 +98,6 @@ export class DevTools extends React.PureComponent {
                   checked={isOpen}
                 />
 
-                <ToggleGroup
-                  label="Enable Docs"
-                  onChange={toggleDocs}
-                  checked={docsEnabled}
-                />
-
-                <ToggleGroup
-                  label="Enable Messaging"
-                  onChange={toggleMessaging}
-                  checked={messagingEnabled}
-                />
                 <Label>
                   Navigate
                   <Select onChange={updateRoute}>
@@ -120,6 +112,14 @@ export class DevTools extends React.PureComponent {
                     /option>
                   </Select>
                 </Label>
+              </FormSection>
+
+              <FormSection title="Docs">
+                <ToggleGroup
+                  label="Enable Docs"
+                  onChange={toggleDocs}
+                  checked={docsEnabled}
+                />
 
                 <Label>
                   Search
@@ -128,6 +128,26 @@ export class DevTools extends React.PureComponent {
                     placeholder="Example: Help Scout"
                   />
                 </Label>
+              </FormSection>
+
+              <FormSection title="Messaging">
+                <ToggleGroup
+                  label="Enable Messaging"
+                  onChange={toggleMessaging}
+                  checked={messagingEnabled}
+                />
+
+                <ToggleGroup
+                  label="Enable Chat"
+                  onChange={toggleChat}
+                  checked={chatEnabled}
+                />
+
+                <ToggleGroup
+                  label='Show "Get in touch" link'
+                  onChange={toggleShowGetInTouch}
+                  checked={showGetInTouch}
+                />
               </FormSection>
 
               <FormSection title="Display">
@@ -164,8 +184,23 @@ export class DevTools extends React.PureComponent {
                   <ColorPicker onChange={updateColor} />
                 </Label>
               </FormSection>
+
+              <FormSection title="Other Actions">
+                <Label>
+                  <Button onClick={logout}>Logout</Button>
+                </Label>
+                <Label>
+                  <Button onClick={resetBeacon}>Reset Beacon</Button>
+                </Label>
+              </FormSection>
             </div>
           </DevToolsUI>
+          <FooterUI>
+            <Input
+              onKeyUp={navigateToRoute}
+              placeholder="Beacon URL: /docs/search?query=help"
+            />
+          </FooterUI>
         </FrameUI>
       </ResizeAndDrag>
     )
@@ -174,15 +209,18 @@ export class DevTools extends React.PureComponent {
 
 const mapStateToProps = state => {
   const {
+    chatEnabled,
     displayText,
     docsEnabled,
     iconImage,
     messagingEnabled,
     open,
     style,
+    showGetInTouch,
   } = state
 
   return {
+    chatEnabled,
     displayText,
     iconImage,
     docsEnabled,
@@ -190,15 +228,21 @@ const mapStateToProps = state => {
     isOpen: open,
     withText: style === 'text' || style === 'iconAndText',
     style,
+    showGetInTouch,
   }
 }
 
 const mapDispatchToProps = {
+  logout,
   openBeacon,
   closeBeacon,
+  resetBeacon,
+  navigateToRoute,
   toggleOpen,
+  toggleChat,
   toggleDocs,
   toggleMessaging,
+  toggleShowGetInTouch,
   updateBeaconId,
   updateColor,
   updateStyle,

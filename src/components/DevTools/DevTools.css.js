@@ -18,7 +18,7 @@ export const FrameUI = styled('div')`
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 20px 20px 60px;
+  padding: 20px 20px 80px;
   position: relative;
   width: 100%;
 
@@ -70,5 +70,20 @@ export const HeaderUI = styled('div')`
   position: sticky;
   text-transform: uppercase;
   top: -20px;
+  z-index: 1000;
+`
+
+export const FooterUI = styled('div')`
+  background: black;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  font-size: 11px;
+  left: -20px;
+  letter-spacing: 1px;
+  margin: 0 -20px -80px;
+  padding: 5px 20px;
+  position: sticky;
+  bottom: -80px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
   z-index: 1000;
 `

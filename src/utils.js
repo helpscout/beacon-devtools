@@ -1,4 +1,5 @@
 const LOCAL_STORAGE_KEY = '__HS_BEACON_DEVTOOLS__'
+const addBeaconListenerAttemptsMax = 10
 
 export function loadState() {
   try {
@@ -29,39 +30,26 @@ export function saveState(state = {}) {
   }
 }
 
-// export function loadSessionState(id) {
-//   if (!id) return {};
+function mockEvent() {
+  return undefined
+}
 
-//   try {
-//     const localState = loadState();
-//     if (!localState || !localState[id]) {
-//       // Save the initial state, if not defined
-//       saveSessionState(id, {});
-//       return {};
-//     }
+export function asyncOnBeaconReady() {
+  return new Promise((resolve, reject) => {
+    return onBeaconReady(resolve, reject)
+  })
+}
 
-//     return localState[id];
-//   } catch (err) {
-//     return {};
-//   }
-// }
-
-// export function saveSessionState(id, state) {
-//   if (!id) return undefined;
-
-//   try {
-//     const localState = loadState();
-//     if (!localState) return undefined;
-
-//     const nextState = {
-//       ...localState,
-//       [id]: state
-//     };
-
-//     saveState(nextState);
-
-//     return undefined;
-//   } catch (err) {
-//     return undefined;
-//   }
-// }
+export function onBeaconReady(callback, err, addBeaconListenerAttempts = 0) {
+  if (addBeaconListenerAttempts >= addBeaconListenerAttemptsMax) {
+    return err()
+  }
+  try {
+    window.Beacon('on', 'open', mockEvent)
+    callback()
+  } catch {
+    setTimeout(() => {
+      onBeaconReady(callback, err, addBeaconListenerAttempts + 1)
+    }, 60)
+  }
+}

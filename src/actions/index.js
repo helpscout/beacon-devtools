@@ -66,6 +66,12 @@ export const updateSearch = (state, event) => {
   }
 }
 
+export const navigateToRoute = (state, event) => {
+  if (event.key === 'Enter') {
+    return updateRoute(state, event)
+  }
+}
+
 export const updateRoute = (state, event) => {
   const route = event.target.value
   window.Beacon('navigate', route)
@@ -97,6 +103,18 @@ export const toggleOpen = state => {
   }
 }
 
+export const toggleChat = state => {
+  window.Beacon('config', {
+    messaging: {
+      chatEnabled: !state.chatEnabled,
+    },
+  })
+
+  return {
+    chatEnabled: !state.chatEnabled,
+  }
+}
+
 export const toggleDocs = state => {
   window.Beacon('config', {
     docsEnabled: !state.docsEnabled,
@@ -115,4 +133,26 @@ export const toggleMessaging = state => {
   return {
     messagingEnabled: !state.messagingEnabled,
   }
+}
+
+export const toggleShowGetInTouch = state => {
+  window.Beacon('config', {
+    messaging: {
+      contactForm: {
+        showGetInTouch: !state.showGetInTouch,
+      },
+    },
+  })
+
+  return {
+    showGetInTouch: !state.showGetInTouch,
+  }
+}
+
+export const resetBeacon = state => {
+  window.Beacon('reset')
+}
+
+export const logout = state => {
+  window.Beacon('logout')
 }

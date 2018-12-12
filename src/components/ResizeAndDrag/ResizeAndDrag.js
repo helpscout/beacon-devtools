@@ -31,11 +31,11 @@ export class ResizeAndDrag extends React.PureComponent {
 
     return (
       <Rnd
-        cancel="input, .ColorPicker *, .c-Switch, select"
+        cancel="input, .ColorPicker *, .c-Switch, select, button"
         default={{x, y, height, width}}
         minWidth={320}
         maxWidth={480}
-        minHeight={320}
+        minHeight={200}
         style={{position: 'fixed', zIndex}}
         onResize={this.handleOnResize}
         onDrag={this.handleOnDrag}
