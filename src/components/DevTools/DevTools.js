@@ -24,6 +24,7 @@ import {FrameUI, DevToolsUI, HeaderUI} from './DevTools.css'
 export class DevTools extends React.PureComponent {
   static defaultProps = {
     beaconId: '',
+    loadTimeout: 600,
     toggleDocs: () => undefined,
     toggleMessaging: () => undefined,
     toggleOpen: () => undefined,
@@ -37,9 +38,11 @@ export class DevTools extends React.PureComponent {
   }
 
   componentDidMount() {
-    window.Beacon('on', 'open', this.props.toggleOpen)
-    window.Beacon('on', 'close', this.props.toggleOpen)
-    window.Beacon('open')
+    setTimeout(() => {
+      window.Beacon('on', 'open', this.props.toggleOpen)
+      window.Beacon('on', 'close', this.props.toggleOpen)
+      window.Beacon('open')
+    }, this.props.loadTimeout)
   }
 
   componentWillUnmount() {
