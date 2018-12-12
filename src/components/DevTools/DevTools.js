@@ -136,7 +136,7 @@ export class DevTools extends React.PureComponent {
                   <Select onChange={updateStyle}>
                     <option>icon</option>
                     <option>text</option>
-                    <option>iconOrText</option>
+                    <option>iconAndText</option>
                     <option>manual</option>
                   </Select>
                 </Label>
@@ -188,7 +188,7 @@ const mapStateToProps = state => {
     docsEnabled,
     messagingEnabled,
     isOpen: open,
-    withText: style === 'text' || style === 'iconOrText',
+    withText: style === 'text' || style === 'iconAndText',
     style,
   }
 }
