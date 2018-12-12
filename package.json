@@ -1,8 +1,8 @@
 {
   "name": "@helpscout/beacon-devtools",
   "description": "DevTools for Help Scout's Beacon Embed",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.0.1",
+  "private": false,
   "main": "dist/DevTools.js",
   "source": "src/DevTools.js",
   "scripts": {
@@ -36,10 +36,9 @@
     "react-dom": "^16 || ^15"
   },
   "dependencies": {
-    "@helpscout/hsds-react": "2.4.16",
-    "@helpscout/wedux": "0.0.10",
+    "@helpscout/hsds-react": "^2.4.16",
+    "@helpscout/wedux": "^0.0.10",
     "react-color": "2.14.1",
-    "react-draggable": "3.0.5",
     "react-rnd": "9.0.4"
   },
   "devDependencies": {
