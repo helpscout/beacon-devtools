@@ -36,7 +36,7 @@ export class ResizeAndDrag extends React.PureComponent {
         minWidth={320}
         maxWidth={480}
         minHeight={320}
-        style={{zIndex}}
+        style={{position: 'fixed', zIndex}}
         onResize={this.handleOnResize}
         onDrag={this.handleOnDrag}
       >
