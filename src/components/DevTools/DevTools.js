@@ -24,11 +24,31 @@ import {FrameUI, DevToolsUI, HeaderUI} from './DevTools.css'
 export class DevTools extends React.PureComponent {
   static defaultProps = {
     beaconId: '',
+    toggleDocs: () => undefined,
+    toggleMessaging: () => undefined,
+    toggleOpen: () => undefined,
+    updateBeaconId: () => undefined,
+    updateColor: () => undefined,
+    updateDisplayText: () => undefined,
+    updateIconImage: () => undefined,
+    updateRoute: () => undefined,
+    updateSearch: () => undefined,
+    updateStyle: () => undefined,
+  }
+
+  componentDidMount() {
+    window.Beacon('on', 'open', this.props.toggleOpen)
+    window.Beacon('on', 'close', this.props.toggleOpen)
+    window.Beacon('open')
+  }
+
+  componentWillUnmount() {
+    window.Beacon('off', 'open', this.props.toggleOpen)
+    window.Beacon('off', 'close', this.props.toggleOpen)
   }
 
   render() {
     const {
-      beaconId,
       displayText,
       docsEnabled,
       messagingEnabled,
@@ -68,9 +88,8 @@ export class DevTools extends React.PureComponent {
                 <Label>
                   Beacon ID
                   <Input
-                    onChange={updateBeaconId}
+                    onKeyUp={updateBeaconId}
                     placeholder="Example: 1234a123-a1b2-12a1-ab12-a123b1234123"
-                    value={beaconId}
                   />
                 </Label>
               </FormSection>

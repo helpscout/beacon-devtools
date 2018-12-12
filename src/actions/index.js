@@ -1,89 +1,93 @@
 export const updateBeaconId = (state, event) => {
-  const beaconId = event.target.value;
-  window.Beacon("init", beaconId);
+  if (event.key === 'Enter') {
+    const beaconId = event.target.value
+    console.log('Beacon DevTools: Initializing', beaconId)
+    window.Beacon('destroy')
+    window.Beacon('init', beaconId)
 
-  return {
-    beaconId
-  };
-};
+    return {
+      beaconId,
+      open: false,
+    }
+  }
+}
 
 export const updateColor = (state, color) => {
-  console.log(color);
-  window.Beacon("config", { display: { color } });
+  window.Beacon('config', {display: {color}})
 
   return {
-    color
-  };
-};
+    color,
+  }
+}
 
 export const updateDisplayText = (state, event) => {
-  const displayText = event.target.value;
-  window.Beacon("config", { display: { text: displayText } });
+  const displayText = event.target.value
+  window.Beacon('config', {display: {text: displayText}})
 
   return {
-    displayText
-  };
-};
+    displayText,
+  }
+}
 
 export const updateIconImage = (state, event) => {
-  const iconImage = event.target.value;
-  window.Beacon("config", { display: { iconImage } });
+  const iconImage = event.target.value
+  window.Beacon('config', {display: {iconImage}})
 
   return {
-    iconImage
-  };
-};
+    iconImage,
+  }
+}
 
 export const updateStyle = (state, event) => {
-  const style = event.target.value;
+  const style = event.target.value
 
-  window.Beacon("config", { display: { style, text: state.displayText } });
+  window.Beacon('config', {display: {style, text: state.displayText}})
 
   return {
-    style
-  };
-};
+    style,
+  }
+}
 
 export const updateSearch = (state, event) => {
-  if (event.key === "Enter") {
-    const query = event.target.value;
-    window.Beacon("search", query);
+  if (event.key === 'Enter') {
+    const query = event.target.value
+    window.Beacon('search', query)
   }
-};
+}
 
 export const updateRoute = (state, event) => {
-  const route = event.target.value;
-  window.Beacon("navigate", route);
-};
+  const route = event.target.value
+  window.Beacon('navigate', route)
+}
 
 export const toggleOpen = state => {
   if (state.open) {
-    window.Beacon("close");
+    window.Beacon('close')
   } else {
-    window.Beacon("open");
+    window.Beacon('open')
   }
 
   return {
-    open: !state.open
-  };
-};
+    open: !state.open,
+  }
+}
 
 export const toggleDocs = state => {
-  window.Beacon("config", {
-    docsEnabled: !state.docsEnabled
-  });
+  window.Beacon('config', {
+    docsEnabled: !state.docsEnabled,
+  })
 
   return {
-    docsEnabled: !state.docsEnabled
-  };
-};
+    docsEnabled: !state.docsEnabled,
+  }
+}
 
 export const toggleMessaging = state => {
-  window.Beacon("config", {
-    messagingEnabled: !state.messagingEnabled
-  });
+  window.Beacon('config', {
+    messagingEnabled: !state.messagingEnabled,
+  })
 
   return {
-    messagingEnabled: !state.messagingEnabled
-  };
-};
+    messagingEnabled: !state.messagingEnabled,
+  }
+}
