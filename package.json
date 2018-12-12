@@ -2,8 +2,11 @@
   "name": "beacon-devtools",
   "version": "0.1.0",
   "private": true,
+  "main": "dist/DevTools.js",
+  "source": "src/DevTools.js",
   "scripts": {
     "prestart": "prestart",
+    "bundle": "zero build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -18,15 +21,23 @@
     "not ie <= 11",
     "not op_mini all"
   ],
+  "peerDependencies": {
+    "react": "^16 || ^15",
+    "react-dom": "^16 || ^15"
+  },
   "dependencies": {
-    "@helpscout/fancy": "2.2.0",
+    "@helpscout/hsds-react": "2.4.16",
     "@helpscout/wedux": "0.0.10",
+    "react-color": "2.14.1",
+    "react-draggable": "3.0.5",
+    "react-rnd": "9.0.4"
+  },
+  "devDependencies": {
+    "@helpscout/prestart": "0.0.9",
+    "@helpscout/zero": "0.0.10",
+    "microbundle": "0.8.3",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-scripts": "2.1.1"
-  },
-  "devDependencies": {
-    "@helpscout/hsds-react": "2.4.16",
-    "@helpscout/prestart": "0.0.9"
   }
 }

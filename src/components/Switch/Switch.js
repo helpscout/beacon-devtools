@@ -1,4 +1,4 @@
-import styled from "@helpscout/fancy";
+import styled from "@helpscout/hsds-react/components/styled";
 import Switch from "@helpscout/hsds-react/components/Switch";
 
 const SwitchUI = styled(Switch)`

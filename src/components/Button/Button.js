@@ -1,4 +1,4 @@
-import styled from "@helpscout/fancy";
+import styled from "@helpscout/hsds-react/components/styled";
 
 const ButtonUI = styled("button")`
   appearance: none;

@@ -22,7 +22,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Beacon 2.0 DevTools App</title>
   </head>
   <body>
     <noscript> You need to enable JavaScript to run this app. </noscript>
@@ -49,6 +49,10 @@
           ? e.attachEvent("onload", a)
           : e.addEventListener("load", a, !1);
       })(window, document, window.Beacon || function() {});
+    </script>
+    <script>
+      window.Beacon("init", "3555c5f0-b9d7-41e5-ac76-f341e9093933");
+      window.Beacon("open");
     </script>
     <!--
       This HTML file is a template.

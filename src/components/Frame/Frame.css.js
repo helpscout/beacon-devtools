@@ -1,4 +1,4 @@
-import styled from "@helpscout/fancy";
+import styled from "@helpscout/hsds-react/components/styled";
 
 export const FrameUI = styled("div")`
   display: flex;
