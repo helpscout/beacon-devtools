@@ -15,7 +15,7 @@ export const updateBeaconId = (state, event) => {
 }
 
 export const updateColor = (state, color) => {
-  window.Beacon('config', {display: {color}})
+  window.Beacon('config', {color})
 }
 
 export const updateDisplayText = (state, event) => {
