@@ -21,21 +21,35 @@ export const updateColor = (state, color) => {
 export const updateDisplayText = (state, event) => {
   const displayText = event.target.value
   window.Beacon('config', {display: {text: displayText}})
+
+  const nextState = {...state, displayText}
+  saveState(nextState)
+
+  return nextState
 }
 
 export const updateIconImage = (state, event) => {
   const iconImage = event.target.value
   window.Beacon('config', {display: {iconImage}})
+
+  const nextState = {...state, iconImage}
+  saveState(nextState)
+
+  return nextState
 }
 
 export const updateStyle = (state, event) => {
   const style = event.target.value
-
-  window.Beacon('config', {display: {style, text: state.displayText}})
-
-  return {
-    style,
+  const nextStyleState = {
+    display: {style, text: state.displayText, iconImage: state.iconImage},
   }
+
+  window.Beacon('config', nextStyleState)
+
+  const nextState = {...state, style}
+  saveState(nextState)
+
+  return nextState
 }
 
 export const updateSizePosition = (state, props) => {

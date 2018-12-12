@@ -12,8 +12,8 @@ export class DevTools extends React.Component {
     const localState = loadState()
 
     this.setState({...localState}, () => {
-      const {height, width, x, y} = localState
-      store.setState({height, width, x, y})
+      const {open, ...rest} = localState
+      store.setState(rest)
     })
   }
 

@@ -171,13 +171,23 @@ export class DevTools extends React.PureComponent {
 }
 
 const mapStateToProps = state => {
-  const {docsEnabled, messagingEnabled, open, style} = state
+  const {
+    displayText,
+    docsEnabled,
+    iconImage,
+    messagingEnabled,
+    open,
+    style,
+  } = state
 
   return {
+    displayText,
+    iconImage,
     docsEnabled,
     messagingEnabled,
     isOpen: open,
     withText: style === 'text' || style === 'iconOrText',
+    style,
   }
 }
 
