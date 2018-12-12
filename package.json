@@ -15,7 +15,7 @@
     "eject": "react-scripts eject",
     "precommit": "zero precommit",
     "version": "npm run build",
-    "release": "np"
+    "release": "np --yolo --no-cleanup"
   },
   "files": [
     "README.md",
