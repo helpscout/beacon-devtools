@@ -1,6 +1,6 @@
 {
   "name": "beacon-devtools",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "private": true,
   "main": "dist/DevTools.js",
   "source": "src/DevTools.js",
@@ -12,7 +12,8 @@
     "build:site": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "precommit": "zero precommit"
+    "precommit": "zero precommit",
+    "release": "np"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,6 +39,7 @@
     "@helpscout/prestart": "0.0.9",
     "@helpscout/zero": "0.0.10",
     "microbundle": "0.8.3",
+    "np": "3.0.4",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-scripts": "2.1.1"
