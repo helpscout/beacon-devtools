@@ -1,6 +1,6 @@
-import styled from "@helpscout/hsds-react/components/styled";
+import styled from '@helpscout/hsds-react/components/styled'
 
-export const FrameUI = styled("div")`
+export const FrameUI = styled('div')`
   --BlueConfigGlobalFontFamily: SFMono-Regular, Consolas, Liberation Mono, Menlo,
     Courier, monospace;
 
@@ -16,10 +16,11 @@ export const FrameUI = styled("div")`
     monospace;
   font-size: 12px;
   height: 100%;
-  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
   padding: 20px 20px 60px;
   position: relative;
-  overflow-y: auto;
+  width: 100%;
 
   &::-webkit-scrollbar {
     width: 8px;
@@ -48,15 +49,15 @@ export const FrameUI = styled("div")`
   * {
     box-sizing: border-box;
   }
-`;
+`
 
-export const DevToolsUI = styled("div")`
+export const DevToolsUI = styled('div')`
   font-size: 13px;
   max-width: 600px;
   position: relative;
-`;
+`
 
-export const HeaderUI = styled("div")`
+export const HeaderUI = styled('div')`
   background: black;
   font-size: 11px;
   font-weight: bold;
@@ -70,4 +71,4 @@ export const HeaderUI = styled("div")`
   text-transform: uppercase;
   top: -20px;
   z-index: 1000;
-`;
+`
