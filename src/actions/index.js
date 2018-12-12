@@ -71,15 +71,29 @@ export const updateRoute = (state, event) => {
   window.Beacon('navigate', route)
 }
 
-export const toggleOpen = state => {
-  if (state.open) {
-    window.Beacon('close')
-  } else {
-    window.Beacon('open')
-  }
+export const openBeacon = state => {
+  if (state.open) return
 
   return {
-    open: !state.open,
+    open: true,
+  }
+}
+
+export const closeBeacon = state => {
+  if (!state.open) return
+
+  return {
+    open: false,
+  }
+}
+
+export const toggleOpen = state => {
+  if (!state.open) {
+    window.Beacon('open')
+    return openBeacon(state)
+  } else {
+    window.Beacon('close')
+    return closeBeacon(state)
   }
 }
 

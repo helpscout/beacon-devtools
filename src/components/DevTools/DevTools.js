@@ -4,6 +4,8 @@ import {
   toggleDocs,
   toggleMessaging,
   toggleOpen,
+  openBeacon,
+  closeBeacon,
   updateBeaconId,
   updateColor,
   updateDisplayText,
@@ -40,15 +42,15 @@ export class DevTools extends React.PureComponent {
 
   componentDidMount() {
     setTimeout(() => {
-      window.Beacon('on', 'open', this.props.toggleOpen)
-      window.Beacon('on', 'close', this.props.toggleOpen)
+      window.Beacon('on', 'open', this.props.openBeacon)
+      window.Beacon('on', 'close', this.props.closeBeacon)
       window.Beacon('open')
     }, this.props.loadTimeout)
   }
 
   componentWillUnmount() {
-    window.Beacon('off', 'open', this.props.toggleOpen)
-    window.Beacon('off', 'close', this.props.toggleOpen)
+    window.Beacon('off', 'open', this.props.openBeacon)
+    window.Beacon('off', 'close', this.props.closeBeacon)
   }
 
   render() {
@@ -192,6 +194,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
+  openBeacon,
+  closeBeacon,
   toggleOpen,
   toggleDocs,
   toggleMessaging,
