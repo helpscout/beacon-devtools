@@ -1,5 +1,5 @@
-import styled from "@helpscout/hsds-react/components/styled";
-import Switch from "@helpscout/hsds-react/components/Switch";
+import styled from '@helpscout/hsds-react/components/styled'
+import Switch from '@helpscout/hsds-react/components/Switch'
 
 const SwitchUI = styled(Switch)`
   margin: 3px 0;
@@ -7,6 +7,6 @@ const SwitchUI = styled(Switch)`
     background: none;
     box-shadow: 0 0 0 1px #bbb inset;
   }
-`;
+`
 
-export default SwitchUI;
+export default SwitchUI

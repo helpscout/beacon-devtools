@@ -1,3 +1,3 @@
-import Beacon from "./Beacon";
+import Beacon from './Beacon'
 
-export default Beacon;
+export default Beacon

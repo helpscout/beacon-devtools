@@ -1,3 +1,3 @@
-import FormSection from "./FormSection";
+import FormSection from './FormSection'
 
-export default FormSection;
+export default FormSection

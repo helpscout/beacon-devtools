@@ -1,6 +1,6 @@
-import styled from "@helpscout/hsds-react/components/styled";
+import styled from '@helpscout/hsds-react/components/styled'
 
-const SelectUI = styled("select")`
+const SelectUI = styled('select')`
   background: black;
   border: 1px solid #999;
   border-radius: 5px;
@@ -10,6 +10,6 @@ const SelectUI = styled("select")`
   display: block;
   margin: 3px 0;
   width: 100%;
-`;
+`
 
-export default SelectUI;
+export default SelectUI

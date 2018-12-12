@@ -1,6 +1,5 @@
 import React from 'react'
 import {connect} from '@helpscout/wedux'
-import {Rnd} from 'react-rnd'
 import {
   toggleDocs,
   toggleMessaging,
@@ -12,9 +11,11 @@ import {
   updateRoute,
   updateSearch,
   updateStyle,
+  updateSizePosition,
 } from '../../actions'
 import Label from '../Label'
 import ColorPicker from '../ColorPicker'
+import ResizeAndDrag from '../ResizeAndDrag'
 import FormSection from '../FormSection'
 import ToggleGroup from '../ToggleGroup'
 import Input from '../Input'
@@ -54,8 +55,8 @@ export class DevTools extends React.PureComponent {
     const {
       displayText,
       docsEnabled,
-      messagingEnabled,
       isOpen,
+      messagingEnabled,
       toggleDocs,
       toggleMessaging,
       toggleOpen,
@@ -70,19 +71,7 @@ export class DevTools extends React.PureComponent {
     } = this.props
 
     return (
-      <Rnd
-        cancel="input, .ColorPicker *, .c-Switch, select"
-        default={{
-          x: 40,
-          y: 40,
-          width: 320,
-          height: 480,
-        }}
-        minWidth={320}
-        maxWidth={480}
-        minHeight={320}
-        style={{zIndex: 9999}}
-      >
+      <ResizeAndDrag>
         <FrameUI>
           <HeaderUI>Beacon DevTools</HeaderUI>
           <DevToolsUI>
@@ -176,16 +165,17 @@ export class DevTools extends React.PureComponent {
             </div>
           </DevToolsUI>
         </FrameUI>
-      </Rnd>
+      </ResizeAndDrag>
     )
   }
 }
 
 const mapStateToProps = state => {
-  const {open, style} = state
+  const {docsEnabled, messagingEnabled, open, style} = state
 
   return {
-    ...state,
+    docsEnabled,
+    messagingEnabled,
     isOpen: open,
     withText: style === 'text' || style === 'iconOrText',
   }
@@ -202,6 +192,7 @@ const mapDispatchToProps = {
   updateIconImage,
   updateSearch,
   updateRoute,
+  updateSizePosition,
 }
 
 export default connect(

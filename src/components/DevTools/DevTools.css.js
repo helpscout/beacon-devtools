@@ -59,6 +59,7 @@ export const DevToolsUI = styled('div')`
 
 export const HeaderUI = styled('div')`
   background: black;
+  border-radius: 8px;
   font-size: 11px;
   font-weight: bold;
   left: -20px;

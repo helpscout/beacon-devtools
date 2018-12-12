@@ -1,3 +1,5 @@
+import {saveState} from '../utils'
+
 export const updateBeaconId = (state, event) => {
   if (event.key === 'Enter') {
     const beaconId = event.target.value
@@ -14,28 +16,16 @@ export const updateBeaconId = (state, event) => {
 
 export const updateColor = (state, color) => {
   window.Beacon('config', {display: {color}})
-
-  return {
-    color,
-  }
 }
 
 export const updateDisplayText = (state, event) => {
   const displayText = event.target.value
   window.Beacon('config', {display: {text: displayText}})
-
-  return {
-    displayText,
-  }
 }
 
 export const updateIconImage = (state, event) => {
   const iconImage = event.target.value
   window.Beacon('config', {display: {iconImage}})
-
-  return {
-    iconImage,
-  }
 }
 
 export const updateStyle = (state, event) => {
@@ -46,6 +36,13 @@ export const updateStyle = (state, event) => {
   return {
     style,
   }
+}
+
+export const updateSizePosition = (state, props) => {
+  const nextState = {...state, ...props}
+  saveState(nextState)
+
+  return nextState
 }
 
 export const updateSearch = (state, event) => {

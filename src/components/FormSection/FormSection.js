@@ -1,19 +1,19 @@
-import React from "react";
-import styled from "@helpscout/hsds-react/components/styled";
+import React from 'react'
+import styled from '@helpscout/hsds-react/components/styled'
 
 export class FormSection extends React.PureComponent {
   render() {
-    const { children, title } = this.props;
+    const {children, title} = this.props
     return (
       <FormSectionUI>
         <HeaderUI>{title && <TitleUI>{title}</TitleUI>}</HeaderUI>
         {children}
       </FormSectionUI>
-    );
+    )
   }
 }
 
-const FormSectionUI = styled("section")`
+const FormSectionUI = styled('section')`
   padding-bottom: 20px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   margin-top: 20px;
@@ -22,16 +22,16 @@ const FormSectionUI = styled("section")`
   &:first-child {
     margin-top: 0;
   }
-`;
+`
 
-const HeaderUI = styled("header")`
+const HeaderUI = styled('header')`
   margin-bottom: 5px;
-`;
+`
 
-const TitleUI = styled("h2")`
+const TitleUI = styled('h2')`
   font-size: 12px;
   font-weight: bold;
   margin: 0;
-`;
+`
 
-export default FormSection;
+export default FormSection

@@ -15,7 +15,9 @@
     "eject": "react-scripts eject",
     "precommit": "zero precommit",
     "version": "npm run build",
-    "release": "np --yolo --no-cleanup"
+    "release": "np --yolo --no-cleanup",
+    "prettier": "prettier \"src/**/*.{js,ts,tsx}\" --write",
+    "pretty": "npm run prettier"
   },
   "keywords": [
     "beacon",

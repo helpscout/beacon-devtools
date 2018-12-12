@@ -2,12 +2,14 @@ import createStore from '@helpscout/wedux'
 
 const store = createStore({
   beaconId: '',
-  color: '#617DEC',
-  displayText: 'Hello',
   open: false,
   docsEnabled: true,
-  iconImage: 'message',
   messagingEnabled: true,
+  x: 40,
+  y: 40,
+  width: 320,
+  height: 480,
+  zIndex: 9999,
 })
 
 export default store

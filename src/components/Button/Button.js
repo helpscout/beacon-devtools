@@ -1,6 +1,6 @@
-import styled from "@helpscout/hsds-react/components/styled";
+import styled from '@helpscout/hsds-react/components/styled'
 
-const ButtonUI = styled("button")`
+const ButtonUI = styled('button')`
   appearance: none;
   background: none;
   border: 1px solid #555;
@@ -10,6 +10,6 @@ const ButtonUI = styled("button")`
   font-size: inherit;
   padding: 5px;
   margin: 3px 0;
-`;
+`
 
-export default ButtonUI;
+export default ButtonUI

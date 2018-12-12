@@ -1,6 +1,6 @@
-import styled from "@helpscout/hsds-react/components/styled";
+import styled from '@helpscout/hsds-react/components/styled'
 
-const InputUI = styled("input")`
+const InputUI = styled('input')`
   background: none;
   border: 1px solid #999;
   border-radius: 5px;
@@ -15,6 +15,6 @@ const InputUI = styled("input")`
   &:focus {
     border-color: #777;
   }
-`;
+`
 
-export default InputUI;
+export default InputUI
