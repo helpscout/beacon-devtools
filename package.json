@@ -6,11 +6,13 @@
   "source": "src/DevTools.js",
   "scripts": {
     "prestart": "prestart",
+    "build": "zero build",
     "bundle": "zero build",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build:site": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "precommit": "zero precommit"
   },
   "eslintConfig": {
     "extends": "react-app"
