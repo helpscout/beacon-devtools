@@ -47,7 +47,7 @@ export function onBeaconReady(callback, err, addBeaconListenerAttempts = 0) {
   try {
     window.Beacon('on', 'open', mockEvent)
     callback()
-  } catch {
+  } catch (error) {
     setTimeout(() => {
       onBeaconReady(callback, err, addBeaconListenerAttempts + 1)
     }, 60)
