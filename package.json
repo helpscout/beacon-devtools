@@ -8,13 +8,13 @@
   "scripts": {
     "prestart": "prestart",
     "build": "zero build",
-    "bundle": "zero build",
+    "bundle": "microbundle --output dist --external all",
     "start": "react-scripts start",
     "build:site": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "precommit": "zero precommit",
-    "version": "npm run build",
+    "version": "npm run build && npm run bundle",
     "release": "np --yolo --no-cleanup",
     "prettier": "prettier \"src/**/*.{js,ts,tsx}\" --write",
     "pretty": "npm run prettier"
