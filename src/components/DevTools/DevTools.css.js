@@ -61,8 +61,7 @@ export const HeaderUI = styled('div')`
   background: black;
   font-size: 11px;
   font-weight: bold;
-  left: 0;
-  left: 0;
+  left: -20px;
   letter-spacing: 1px;
   line-height: 1;
   margin: -20px -20px 0;
