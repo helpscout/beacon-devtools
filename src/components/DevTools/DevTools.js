@@ -1,6 +1,6 @@
-import React from "react";
-import { connect } from "@helpscout/wedux";
-import { Rnd } from "react-rnd";
+import React from 'react'
+import {connect} from '@helpscout/wedux'
+import {Rnd} from 'react-rnd'
 import {
   toggleDocs,
   toggleMessaging,
@@ -11,20 +11,20 @@ import {
   updateIconImage,
   updateRoute,
   updateSearch,
-  updateStyle
-} from "../../actions";
-import Label from "../Label";
-import ColorPicker from "../ColorPicker";
-import FormSection from "../FormSection";
-import ToggleGroup from "../ToggleGroup";
-import Input from "../Input";
-import Select from "../Select";
-import { FrameUI, DevToolsUI, HeaderUI } from "./DevTools.css";
+  updateStyle,
+} from '../../actions'
+import Label from '../Label'
+import ColorPicker from '../ColorPicker'
+import FormSection from '../FormSection'
+import ToggleGroup from '../ToggleGroup'
+import Input from '../Input'
+import Select from '../Select'
+import {FrameUI, DevToolsUI, HeaderUI} from './DevTools.css'
 
 export class DevTools extends React.PureComponent {
   static defaultProps = {
-    beaconId: ""
-  };
+    beaconId: '',
+  }
 
   render() {
     const {
@@ -43,8 +43,8 @@ export class DevTools extends React.PureComponent {
       updateRoute,
       updateSearch,
       updateStyle,
-      withText
-    } = this.props;
+      withText,
+    } = this.props
 
     return (
       <Rnd
@@ -53,15 +53,15 @@ export class DevTools extends React.PureComponent {
           x: 40,
           y: 40,
           width: 320,
-          height: 480
+          height: 480,
         }}
         minWidth={320}
         maxWidth={480}
         minHeight={320}
-        style={{ zIndex: 9999 }}
+        style={{zIndex: 9999}}
       >
         <FrameUI>
-          <HeaderUI>Beacon 2.0 DevTools</HeaderUI>
+          <HeaderUI>Beacon DevTools</HeaderUI>
           <DevToolsUI>
             <div>
               <FormSection>
@@ -155,19 +155,19 @@ export class DevTools extends React.PureComponent {
           </DevToolsUI>
         </FrameUI>
       </Rnd>
-    );
+    )
   }
 }
 
 const mapStateToProps = state => {
-  const { open, style } = state;
+  const {open, style} = state
 
   return {
     ...state,
     isOpen: open,
-    withText: style === "text" || style === "iconOrText"
-  };
-};
+    withText: style === 'text' || style === 'iconOrText',
+  }
+}
 
 const mapDispatchToProps = {
   toggleOpen,
@@ -179,10 +179,10 @@ const mapDispatchToProps = {
   updateDisplayText,
   updateIconImage,
   updateSearch,
-  updateRoute
-};
+  updateRoute,
+}
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
-)(DevTools);
+  mapDispatchToProps,
+)(DevTools)

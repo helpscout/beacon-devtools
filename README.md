@@ -1,4 +1,4 @@
-# Beacon 2.0 DevTools
+# Beacon DevTools
 
 > DevTools for Help Scout's Beacon Embed
 
