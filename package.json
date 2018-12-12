@@ -1,7 +1,7 @@
 {
   "name": "@helpscout/beacon-devtools",
   "description": "DevTools for Help Scout's Beacon Embed",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "main": "dist/DevTools.js",
   "source": "src/DevTools.js",
