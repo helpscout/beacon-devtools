@@ -11,6 +11,7 @@
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Demo](#demo)
 - [Check out Beacon](#check-out-beacon)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -38,6 +39,10 @@ class MyApp extends React.Component {
   }
 }
 ```
+
+## Demo
+
+Check out the demo on [Netlify](https://beacon-devtools.netlify.com/)!
 
 ## Check out Beacon
 
