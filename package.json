@@ -1,5 +1,6 @@
 {
-  "name": "beacon-devtools",
+  "name": "@helpscout/beacon-devtools",
+  "description": "DevTools for Help Scout's Beacon Embed",
   "version": "0.0.0",
   "private": true,
   "main": "dist/DevTools.js",
@@ -15,6 +16,11 @@
     "precommit": "zero precommit",
     "release": "np"
   },
+  "files": [
+    "README.md",
+    "LICENSE",
+    "dist"
+  ],
   "eslintConfig": {
     "extends": "react-app"
   },
