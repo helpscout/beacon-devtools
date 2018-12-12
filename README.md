@@ -2,7 +2,7 @@
 
 > DevTools for Help Scout's Beacon Embed
 
-![Beacon DevTools](./images/beacon-devtools-prev.jpg)
+![Beacon DevTools](https://raw.githubusercontent.com/helpscout/beacon-devtools/master/images/beacon-devtools-prev.jpg)
 
 ## Table of contents
 
