@@ -1,17 +1,19 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-- [Beacon 2.0 DevTools](#beacon-20-devtools)
-  - [Installation](#installation)
-  - [Usage](#usage)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 # Beacon 2.0 DevTools
 
 > DevTools for Help Scout's Beacon Embed
 
 ![Beacon DevTools](./images/beacon-devtools.jpg)
+
+## Table of contents
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Check out Beacon](#check-out-beacon)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Installation
 
@@ -36,3 +38,11 @@ class MyApp extends React.Component {
   }
 }
 ```
+
+## Check out Beacon
+
+**Beacon is way more than chat.**
+
+Say farewell to overwhelming chat volume, staffing nightmares, and frustrated customers abandoned in chat windows. Ready to make your website more helpful?
+
+👉 [Check it out](https://www.helpscout.net/live-chat/)
