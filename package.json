@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "@helpscout/hsds-react": "^2.4.16",
-    "@helpscout/wedux": "^0.0.10",
+    "@helpscout/wedux": "^0.0.11",
     "react-color": "2.14.1",
     "react-rnd": "9.0.4"
   },

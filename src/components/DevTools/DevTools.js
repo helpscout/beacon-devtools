@@ -1,5 +1,5 @@
 import React from 'react'
-import {connect} from '@helpscout/wedux'
+import {connect} from '../../store'
 import {
   logout,
   resetBeacon,

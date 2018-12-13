@@ -1,6 +1,6 @@
 import React from 'react'
-import {connect} from '@helpscout/wedux'
 import {Rnd} from 'react-rnd'
+import {connect} from '../../store'
 import {updateSizePosition} from '../../actions'
 
 export class ResizeAndDrag extends React.PureComponent {

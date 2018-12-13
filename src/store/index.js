@@ -1,6 +1,6 @@
-import createStore from '@helpscout/wedux'
+import {createUniqueStore} from '@helpscout/wedux'
 
-const store = createStore({
+const store = createUniqueStore({
   beaconId: '',
   open: false,
   chatEnabled: true,
@@ -17,4 +17,7 @@ const store = createStore({
   zIndex: 9999,
 })
 
-export default store
+export const Provider = store.Provider
+export const connect = store.connect
+
+export default store.store
