@@ -30,18 +30,23 @@ export class ResizeAndDrag extends React.PureComponent {
     const {children, x, y, height, width, zIndex} = this.props
 
     return (
-      <Rnd
-        cancel="input, .ColorPicker *, .c-Switch, select, button"
-        default={{x, y, height, width}}
-        minWidth={320}
-        maxWidth={480}
-        minHeight={200}
-        style={{position: 'fixed', zIndex}}
-        onResize={this.handleOnResize}
-        onDrag={this.handleOnDrag}
+      <div
+        style={{position: 'fixed', top: 0, left: 0, zIndex}}
+        id="BeaconDevToolsWrapper"
       >
-        {children}
-      </Rnd>
+        <Rnd
+          cancel="input, .ColorPicker *, .c-Switch, select, button"
+          default={{x, y, height, width}}
+          minWidth={320}
+          maxWidth={480}
+          minHeight={200}
+          style={{zIndex}}
+          onResize={this.handleOnResize}
+          onDrag={this.handleOnDrag}
+        >
+          {children}
+        </Rnd>
+      </div>
     )
   }
 }

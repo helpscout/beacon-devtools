@@ -196,10 +196,7 @@ export class DevTools extends React.PureComponent {
             </div>
           </DevToolsUI>
           <FooterUI>
-            <Input
-              onKeyUp={navigateToRoute}
-              placeholder="Beacon URL: /docs/search?query=help"
-            />
+            <Input onKeyUp={navigateToRoute} placeholder="Beacon URL: /ask" />
           </FooterUI>
         </FrameUI>
       </ResizeAndDrag>
