@@ -33,6 +33,7 @@ const HeaderUI = styled('header')`
 `
 
 const TitleUI = styled('h2')`
+  color: inherit;
   font-size: 12px;
   font-weight: bold;
   margin: 0;
