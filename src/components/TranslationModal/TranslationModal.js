@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from '../../store'
-import {updateLabel} from '../../actions'
+import {toggleTranslation, updateLabel} from '../../actions'
 import Modal from '../Modal'
 import Input from '../Input'
 import Label from '../Label'
@@ -9,6 +9,7 @@ export class TranslationModal extends React.PureComponent {
   static defaultProps = {
     labels: {},
     onLabelChange: () => undefined,
+    toggleTranslation: () => undefined,
     show: true,
   }
 
@@ -36,7 +37,12 @@ export class TranslationModal extends React.PureComponent {
     if (!this.props.show) return null
 
     return (
-      <Modal title="Translations" zIndex={999}>
+      <Modal
+        title="Translations"
+        zIndex={999}
+        onClickClose={this.props.toggleTranslation}
+        withClose
+      >
         {this.renderLabels()}
       </Modal>
     )
@@ -50,6 +56,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
+  toggleTranslation,
   onLabelChange: updateLabel,
 }
 

@@ -1,4 +1,5 @@
 import styled from '@helpscout/hsds-react/components/styled'
+import CloseButton from '@helpscout/hsds-react/components/CloseButton'
 
 export const FrameUI = styled('div')`
   --BlueConfigGlobalFontFamily: SFMono-Regular, Consolas, Liberation Mono, Menlo,
@@ -71,3 +72,15 @@ export const HeaderUI = styled('div')`
   top: -20px;
   z-index: 1000;
 `
+
+export const CloseUI = styled(CloseButton)`
+  color: white !important;
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  z-index: 9999999;
+  transform: scale(0.6);
+`
+CloseUI.defaultProps = {
+  seamless: true,
+}

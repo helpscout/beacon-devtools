@@ -6,7 +6,7 @@
   "main": "dist/DevTools.js",
   "source": "src/DevTools.js",
   "scripts": {
-    "prestart": "zero prestart",
+    "prestart": "prestart",
     "build": "zero build",
     "build:single": "node scripts/build-single.js",
     "build:umd": "node scripts/build-umd.js",
@@ -52,6 +52,7 @@
     "react-rnd": "9.0.4"
   },
   "devDependencies": {
+    "@helpscout/prestart": "0.0.9",
     "@helpscout/zero": "^0.0.9",
     "glob": "7.1.3",
     "np": "3.0.4",
