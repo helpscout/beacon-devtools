@@ -1,6 +1,15 @@
 const LOCAL_STORAGE_KEY = '__HS_BEACON_DEVTOOLS__'
 const addBeaconListenerAttemptsMax = 10
 
+export function createUUIDFactory() {
+  let index = 0
+  return (namespace = 'node') => {
+    return `${namespace}-${index++}`
+  }
+}
+
+export const uuid = createUUIDFactory()
+
 export function loadState() {
   try {
     const serializedState = localStorage.getItem(LOCAL_STORAGE_KEY)

@@ -1,6 +1,6 @@
 import React from 'react'
 import App from './components/App'
-import {loadState, asyncOnBeaconReady} from './utils'
+import {loadState, saveState, asyncOnBeaconReady} from './utils'
 import store from './store'
 
 export class DevTools extends React.Component {
@@ -13,7 +13,12 @@ export class DevTools extends React.Component {
 
     this.setState({...localState}, () => {
       store.setState(localState)
+      saveState(store.getState())
     })
+  }
+
+  componentWillUnmount() {
+    saveState(store.getState())
   }
 
   componentDidMount() {

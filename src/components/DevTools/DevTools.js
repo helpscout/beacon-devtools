@@ -8,6 +8,7 @@ import {
   toggleMessaging,
   toggleOpen,
   toggleShowGetInTouch,
+  toggleTranslation,
   navigateToRoute,
   openBeacon,
   closeBeacon,
@@ -23,13 +24,13 @@ import {
 import Button from '../Button'
 import Label from '../Label'
 import ColorPicker from '../ColorPicker'
-import ResizeAndDrag from '../ResizeAndDrag'
+import MainModal from '../MainModal'
 import FormSection from '../FormSection'
 import ToggleGroup from '../ToggleGroup'
 import Input from '../Input'
 import Select from '../Select'
 import {ScopeProvider} from '@helpscout/hsds-react/components/styled'
-import {FrameUI, DevToolsUI, HeaderUI, FooterUI} from './DevTools.css'
+import {DevToolsUI, HeaderUI, FooterUI} from './DevTools.css'
 
 export class DevTools extends React.PureComponent {
   static defaultProps = {
@@ -37,6 +38,7 @@ export class DevTools extends React.PureComponent {
     toggleDocs: () => undefined,
     toggleMessaging: () => undefined,
     toggleOpen: () => undefined,
+    toggleTranslation: () => undefined,
     updateBeaconId: () => undefined,
     updateColor: () => undefined,
     updateDisplayText: () => undefined,
@@ -73,6 +75,7 @@ export class DevTools extends React.PureComponent {
       toggleMessaging,
       toggleOpen,
       toggleShowGetInTouch,
+      toggleTranslation,
       updateBeaconId,
       updateColor,
       updateDisplayText,
@@ -86,129 +89,126 @@ export class DevTools extends React.PureComponent {
     return (
       <ScopeProvider scope="#BeaconDevTools">
         <div id="BeaconDevTools">
-          <ResizeAndDrag>
-            <FrameUI>
-              <HeaderUI>
-                Beacon DevTools
-                <Input onKeyUp={updateBeaconId} placeholder="Beacon ID" />
-              </HeaderUI>
-              <DevToolsUI>
-                <div>
-                  <FormSection title="Interactions">
-                    <ToggleGroup
-                      label="Open"
-                      onChange={toggleOpen}
-                      checked={isOpen}
+          <MainModal>
+            <HeaderUI>
+              Beacon DevTools
+              <Input onKeyUp={updateBeaconId} placeholder="Beacon ID" />
+            </HeaderUI>
+            <DevToolsUI>
+              <div>
+                <FormSection title="Interactions">
+                  <ToggleGroup
+                    label="Open"
+                    onChange={toggleOpen}
+                    checked={isOpen}
+                  />
+
+                  <Label>
+                    Navigate
+                    <Select onChange={updateRoute}>
+                      <option value="/">Home</option>
+                      <option value="/docs/search">Answers</option>
+                      <option value="/ask">Ask</option>
+                      <option value="/ask/message">Ask/Message</option>
+                      <option value="/ask/chat">Ask/Chat</option>
+                      <option value="/previous-messages">
+                        Previous Messages
+                      </option>
+                      /option>
+                    </Select>
+                  </Label>
+                </FormSection>
+
+                <FormSection title="Docs">
+                  <ToggleGroup
+                    label="Enable Docs"
+                    onChange={toggleDocs}
+                    checked={docsEnabled}
+                  />
+
+                  <Label>
+                    Search
+                    <Input
+                      onKeyUp={updateSearch}
+                      placeholder="Example: Help Scout"
                     />
+                  </Label>
+                </FormSection>
 
+                <FormSection title="Messaging">
+                  <ToggleGroup
+                    label="Enable Messaging"
+                    onChange={toggleMessaging}
+                    checked={messagingEnabled}
+                  />
+
+                  <ToggleGroup
+                    label="Enable Chat"
+                    onChange={toggleChat}
+                    checked={chatEnabled}
+                  />
+
+                  <ToggleGroup
+                    label='Show "Get in touch" link'
+                    onChange={toggleShowGetInTouch}
+                    checked={showGetInTouch}
+                  />
+                </FormSection>
+
+                <FormSection title="Display">
+                  <Label>
+                    Style
+                    <Select onChange={updateStyle}>
+                      <option>icon</option>
+                      <option>text</option>
+                      <option>iconAndText</option>
+                      <option>manual</option>
+                    </Select>
+                  </Label>
+
+                  {withText && (
                     <Label>
-                      Navigate
-                      <Select onChange={updateRoute}>
-                        <option value="/">Home</option>
-                        <option value="/docs/search">Answers</option>
-                        <option value="/ask">Ask</option>
-                        <option value="/ask/message">Ask/Message</option>
-                        <option value="/ask/chat">Ask/Chat</option>
-                        <option value="/previous-messages">
-                          Previous Messages
-                        </option>
-                        /option>
-                      </Select>
+                      Beacon Text
+                      <Input value={displayText} onChange={updateDisplayText} />
                     </Label>
-                  </FormSection>
+                  )}
 
-                  <FormSection title="Docs">
-                    <ToggleGroup
-                      label="Enable Docs"
-                      onChange={toggleDocs}
-                      checked={docsEnabled}
-                    />
+                  <Label>
+                    Icon Image
+                    <Select onChange={updateIconImage}>
+                      <option>message</option>
+                      <option>beacon</option>
+                      <option>buoy</option>
+                      <option>search</option>
+                      <option>question</option>
+                    </Select>
+                  </Label>
 
-                    <Label>
-                      Search
-                      <Input
-                        onKeyUp={updateSearch}
-                        placeholder="Example: Help Scout"
-                      />
-                    </Label>
-                  </FormSection>
+                  <Label>
+                    Color
+                    <ColorPicker onChange={updateColor} />
+                  </Label>
+                </FormSection>
 
-                  <FormSection title="Messaging">
-                    <ToggleGroup
-                      label="Enable Messaging"
-                      onChange={toggleMessaging}
-                      checked={messagingEnabled}
-                    />
-
-                    <ToggleGroup
-                      label="Enable Chat"
-                      onChange={toggleChat}
-                      checked={chatEnabled}
-                    />
-
-                    <ToggleGroup
-                      label='Show "Get in touch" link'
-                      onChange={toggleShowGetInTouch}
-                      checked={showGetInTouch}
-                    />
-                  </FormSection>
-
-                  <FormSection title="Display">
-                    <Label>
-                      Style
-                      <Select onChange={updateStyle}>
-                        <option>icon</option>
-                        <option>text</option>
-                        <option>iconAndText</option>
-                        <option>manual</option>
-                      </Select>
-                    </Label>
-
-                    {withText && (
-                      <Label>
-                        Beacon Text
-                        <Input
-                          value={displayText}
-                          onChange={updateDisplayText}
-                        />
-                      </Label>
-                    )}
-
-                    <Label>
-                      Icon Image
-                      <Select onChange={updateIconImage}>
-                        <option>message</option>
-                        <option>beacon</option>
-                        <option>buoy</option>
-                        <option>search</option>
-                        <option>question</option>
-                      </Select>
-                    </Label>
-
-                    <Label>
-                      Color
-                      <ColorPicker onChange={updateColor} />
-                    </Label>
-                  </FormSection>
-
-                  <FormSection title="Other Actions">
-                    <Label>
-                      <Button onClick={logout}>Logout</Button>
-                    </Label>
-                    <Label>
-                      <Button onClick={resetBeacon}>Reset Beacon</Button>
-                    </Label>
-                  </FormSection>
-                </div>
-              </DevToolsUI>
-              <FooterUI>
-                <Input
-                  onKeyUp={navigateToRoute}
-                  placeholder="Beacon URL: /ask"
-                />
-              </FooterUI>
-            </FrameUI>
-          </ResizeAndDrag>
+                <FormSection title="Other Actions">
+                  <Label>
+                    <Button onClick={toggleTranslation}>
+                      Translation Labels
+                    </Button>
+                  </Label>
+                  <Label>
+                    <Button onClick={logout}>Logout</Button>
+                  </Label>
+                  <Label>
+                    <Button onClick={resetBeacon}>Reset Beacon</Button>
+                  </Label>
+                </FormSection>
+              </div>
+            </DevToolsUI>
+            <FooterUI>
+              <Input onKeyUp={navigateToRoute} placeholder="Beacon URL: /ask" />
+            </FooterUI>
+          </MainModal>
         </div>
       </ScopeProvider>
     )
@@ -251,6 +251,7 @@ const mapDispatchToProps = {
   toggleDocs,
   toggleMessaging,
   toggleShowGetInTouch,
+  toggleTranslation,
   updateBeaconId,
   updateColor,
   updateStyle,

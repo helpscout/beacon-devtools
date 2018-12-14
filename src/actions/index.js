@@ -156,3 +156,33 @@ export const resetBeacon = state => {
 export const logout = state => {
   window.Beacon('logout')
 }
+
+export const setActiveModal = (state, activeModal) => {
+  return {
+    activeModal,
+  }
+}
+
+export const updateLabel = (state, labelProps) => {
+  const {id, value} = labelProps
+  if (!id) return
+
+  window.Beacon('config', {
+    labels: {
+      [id]: value,
+    },
+  })
+
+  return {
+    labels: {
+      ...state.labels,
+      [id]: value,
+    },
+  }
+}
+
+export const toggleTranslation = state => {
+  return {
+    showTranslation: !state.showTranslation,
+  }
+}

@@ -1,6 +1,8 @@
 import {createUniqueStore} from '@helpscout/wedux'
+import labels from '../data/labels'
 
-const store = createUniqueStore({
+export const initialState = {
+  activeModal: '',
   beaconId: '',
   open: false,
   chatEnabled: true,
@@ -14,8 +16,12 @@ const store = createUniqueStore({
   y: 40,
   width: 320,
   height: 480,
-  zIndex: 9999,
-})
+  zIndex: 999999,
+  showTranslation: false,
+  labels,
+}
+
+const store = createUniqueStore(initialState)
 
 export const Provider = store.Provider
 export const connect = store.connect
