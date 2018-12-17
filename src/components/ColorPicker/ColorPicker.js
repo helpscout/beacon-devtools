@@ -1,6 +1,7 @@
 import React from 'react'
 import reactCSS from 'reactcss'
 import {SketchPicker} from 'react-color'
+import {ColorPickerUI} from './ColorPicker.css'
 
 class ColorPicker extends React.Component {
   static defaultProps = {
@@ -66,7 +67,7 @@ class ColorPicker extends React.Component {
     })
 
     return (
-      <div style={{position: 'relative'}} className="ColorPicker">
+      <ColorPickerUI style={{position: 'relative'}} className="ColorPicker">
         <div style={styles.swatch} onClick={this.handleClick}>
           <div style={styles.color} />
         </div>
@@ -80,7 +81,7 @@ class ColorPicker extends React.Component {
             />
           </div>
         ) : null}
-      </div>
+      </ColorPickerUI>
     )
   }
 }
