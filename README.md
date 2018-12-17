@@ -49,7 +49,10 @@ class MyApp extends React.Component {
 To add Beacon DevTools to your page, copy/paste the following snippet into your HTML:
 
 ```html
-<script src="https://unpkg.com/@helpscout/beacon-devtools/dist/beacon-devtools.umd.js"></script>
+<script
+  crossorigin
+  src="https://unpkg.com/@helpscout/beacon-devtools/dist/beacon-devtools.umd.js"
+></script>
 ```
 
 Alternatively, you can add this snippet:
