@@ -35,6 +35,7 @@ import {DevToolsUI, HeaderUI, FooterUI} from './DevTools.css'
 export class DevTools extends React.PureComponent {
   static defaultProps = {
     beaconId: '',
+    isAutoOpen: false,
     toggleDocs: () => undefined,
     toggleMessaging: () => undefined,
     toggleOpen: () => undefined,
@@ -51,7 +52,9 @@ export class DevTools extends React.PureComponent {
   componentDidMount() {
     window.Beacon('on', 'open', this.props.openBeacon)
     window.Beacon('on', 'close', this.props.closeBeacon)
-    window.Beacon('open')
+    if (this.props.isAutoOpen) {
+      window.Beacon('open')
+    }
   }
 
   componentWillUnmount() {

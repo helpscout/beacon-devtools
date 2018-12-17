@@ -14,6 +14,7 @@
   - [Development](#development)
   - [In Browser](#in-browser)
 - [Demo](#demo)
+- [Props](#props)
 - [Check out Beacon](#check-out-beacon)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -74,6 +75,16 @@ Alternatively, you can add this snippet:
 ## Demo
 
 Check out the demo on [Netlify](https://beacon-devtools.netlify.com/)!
+
+## Props
+
+```jsx
+<BeaconDevTools />
+```
+
+| Prop       | Type      | Default | Description                         |
+| ---------- | --------- | ------- | ----------------------------------- |
+| isAutoOpen | `boolean` | `false` | Automatically opens Beacon on load. |
 
 ## Check out Beacon
 

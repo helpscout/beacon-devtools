@@ -80,6 +80,9 @@ export const updateRoute = (state, event) => {
 export const openBeacon = state => {
   if (state.open) return
 
+  const nextState = {...state, open: true}
+  saveState(nextState)
+
   return {
     open: true,
   }
@@ -87,6 +90,9 @@ export const openBeacon = state => {
 
 export const closeBeacon = state => {
   if (!state.open) return
+
+  const nextState = {...state, open: false}
+  saveState(nextState)
 
   return {
     open: false,

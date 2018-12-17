@@ -6,4 +6,4 @@ const mountNode = document.createElement('div')
 mountNode.id = 'BeaconDevToolsRoot'
 document.body.appendChild(mountNode)
 
-ReactDOM.render(<DevTools />, mountNode)
+ReactDOM.render(<DevTools isAutoOpen />, mountNode)
