@@ -15,6 +15,7 @@
   - [In Browser](#in-browser)
 - [Demo](#demo)
 - [Props](#props)
+  - [beaconIds example](#beaconids-example)
 - [Check out Beacon](#check-out-beacon)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -82,9 +83,24 @@ Check out the demo on [Netlify](https://beacon-devtools.netlify.com/)!
 <BeaconDevTools />
 ```
 
-| Prop       | Type      | Default | Description                         |
-| ---------- | --------- | ------- | ----------------------------------- |
-| isAutoOpen | `boolean` | `false` | Automatically opens Beacon on load. |
+| Prop       | Type            | Default | Description                                         |
+| ---------- | --------------- | ------- | --------------------------------------------------- |
+| isAutoOpen | `boolean`       | `false` | Automatically opens Beacon on load.                 |
+| beaconIds  | `Array<Object>` | `[]`    | A collection of Beacon IDs to load into a `select`. |
+
+### beaconIds example
+
+```jsx
+const beaconIds = [
+  { id: '...', label: 'My Test Beacon 1' },
+  { id: '...', label: 'Production Beacon' },
+  { id: '...', label: 'Marketing Beacon' },
+]
+
+// ...
+
+<BeaconDevTools beaconIds={beaconId} />
+```
 
 ## Check out Beacon
 
