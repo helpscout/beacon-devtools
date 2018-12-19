@@ -1,14 +1,23 @@
 import {saveState} from '../utils'
+import {initialState} from '../store'
 
-export const updateBeaconId = (state, event) => {
+export const updateBeaconId = (state, event, {isAutoOpen}) => {
   const beaconId = event.target.value
+  if (state.beaconId === beaconId) return
+
   console.log('Beacon DevTools: Initializing', beaconId)
+
   window.Beacon('destroy')
   window.Beacon('init', beaconId)
 
+  const open = isAutoOpen ? true : state.open
+  const nextState = {...state, beaconId, open}
+
+  saveState(nextState)
+
   return {
     beaconId,
-    open: false,
+    open,
   }
 }
 
@@ -155,6 +164,12 @@ export const toggleShowGetInTouch = state => {
 
 export const resetBeacon = state => {
   window.Beacon('reset')
+
+  saveState(initialState)
+
+  return {
+    initialState,
+  }
 }
 
 export const logout = state => {

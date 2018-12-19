@@ -53,8 +53,19 @@ export class DevTools extends React.PureComponent {
   componentDidMount() {
     window.Beacon('on', 'open', this.props.openBeacon)
     window.Beacon('on', 'close', this.props.closeBeacon)
-    if (this.props.isAutoOpen) {
-      window.Beacon('open')
+
+    if (this.props.beaconId) {
+      setTimeout(() => {
+        window.Beacon('destroy')
+        window.Beacon('init', this.props.beaconId)
+        if (this.props.isAutoOpen) {
+          window.Beacon('open')
+        }
+      }, 1200)
+    } else {
+      if (this.props.isAutoOpen) {
+        window.Beacon('open')
+      }
     }
   }
 
@@ -65,12 +76,12 @@ export class DevTools extends React.PureComponent {
 
   handleOnInputUpdateBeaconId = event => {
     if (event.key === 'Enter') {
-      this.props.updateBeaconId(event)
+      this.props.updateBeaconId(event, {isAutoOpen: this.props.isAutoOpen})
     }
   }
 
   handleOnSelectUpdateBeaconId = event => {
-    this.props.updateBeaconId(event)
+    this.props.updateBeaconId(event, {isAutoOpen: this.props.isAutoOpen})
   }
 
   renderBeaconIds() {
@@ -96,6 +107,7 @@ export class DevTools extends React.PureComponent {
 
   render() {
     const {
+      beaconId,
       chatEnabled,
       displayText,
       docsEnabled,
@@ -128,7 +140,7 @@ export class DevTools extends React.PureComponent {
               Beacon DevTools
               <Input
                 onKeyUp={this.handleOnInputUpdateBeaconId}
-                placeholder="Beacon ID"
+                placeholder={beaconId || 'Beacon ID'}
               />
               {this.renderBeaconIds()}
             </HeaderUI>
@@ -238,7 +250,7 @@ export class DevTools extends React.PureComponent {
                     <Button onClick={logout}>Logout</Button>
                   </FormBlock>
                   <FormBlock>
-                    <Button onClick={resetBeacon}>Reset Beacon</Button>
+                    <Button onClick={resetBeacon}>Reset</Button>
                   </FormBlock>
                 </FormSection>
               </div>
@@ -255,6 +267,7 @@ export class DevTools extends React.PureComponent {
 
 const mapStateToProps = state => {
   const {
+    beaconId,
     chatEnabled,
     displayText,
     docsEnabled,
@@ -266,6 +279,7 @@ const mapStateToProps = state => {
   } = state
 
   return {
+    beaconId,
     chatEnabled,
     displayText,
     iconImage,
