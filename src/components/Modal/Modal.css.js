@@ -73,17 +73,21 @@ CloseUI.defaultProps = {
 
 export const MinimizeUI = styled('button')`
   ${getFrameStyles};
-  bottom: 30px;
+  top: 25%;
   cursor: pointer;
   font-weight: bold;
   height: 32px;
-  left: 30px;
+  left: 10px;
   position: fixed;
   width: 32px;
-  z-index: 999999999;
+  z-index: 10;
+  opacity: 0.3;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background: #222;
+    opacity: 1;
+    z-index: 999999999;
   }
   &:active {
     background: black;
