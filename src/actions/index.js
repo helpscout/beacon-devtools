@@ -1,16 +1,14 @@
 import {saveState} from '../utils'
 
 export const updateBeaconId = (state, event) => {
-  if (event.key === 'Enter') {
-    const beaconId = event.target.value
-    console.log('Beacon DevTools: Initializing', beaconId)
-    window.Beacon('destroy')
-    window.Beacon('init', beaconId)
+  const beaconId = event.target.value
+  console.log('Beacon DevTools: Initializing', beaconId)
+  window.Beacon('destroy')
+  window.Beacon('init', beaconId)
 
-    return {
-      beaconId,
-      open: false,
-    }
+  return {
+    beaconId,
+    open: false,
   }
 }
 

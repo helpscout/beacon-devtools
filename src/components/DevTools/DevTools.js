@@ -35,6 +35,7 @@ import {DevToolsUI, FormBlock, HeaderUI, FooterUI} from './DevTools.css'
 export class DevTools extends React.PureComponent {
   static defaultProps = {
     beaconId: '',
+    beaconIds: [],
     isAutoOpen: false,
     toggleDocs: () => undefined,
     toggleMessaging: () => undefined,
@@ -62,6 +63,37 @@ export class DevTools extends React.PureComponent {
     window.Beacon('off', 'close', this.props.closeBeacon)
   }
 
+  handleOnInputUpdateBeaconId = event => {
+    if (event.key === 'Enter') {
+      this.props.updateBeaconId(event)
+    }
+  }
+
+  handleOnSelectUpdateBeaconId = event => {
+    this.props.updateBeaconId(event)
+  }
+
+  renderBeaconIds() {
+    const {beaconIds} = this.props
+    if (!beaconIds.length) return null
+
+    return (
+      <Label>
+        Beacon ID List
+        <Select onChange={this.handleOnSelectUpdateBeaconId}>
+          <option disabled selected>
+            Select...
+          </option>
+          {beaconIds.map(({id, label}) => (
+            <option value={id} key={id}>
+              {label}
+            </option>
+          ))}
+        </Select>
+      </Label>
+    )
+  }
+
   render() {
     const {
       chatEnabled,
@@ -79,7 +111,6 @@ export class DevTools extends React.PureComponent {
       toggleOpen,
       toggleShowGetInTouch,
       toggleTranslation,
-      updateBeaconId,
       updateColor,
       updateDisplayText,
       updateIconImage,
@@ -95,7 +126,11 @@ export class DevTools extends React.PureComponent {
           <MainModal>
             <HeaderUI>
               Beacon DevTools
-              <Input onKeyUp={updateBeaconId} placeholder="Beacon ID" />
+              <Input
+                onKeyUp={this.handleOnInputUpdateBeaconId}
+                placeholder="Beacon ID"
+              />
+              {this.renderBeaconIds()}
             </HeaderUI>
             <DevToolsUI>
               <div>
