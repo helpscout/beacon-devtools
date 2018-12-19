@@ -30,7 +30,7 @@ import ToggleGroup from '../ToggleGroup'
 import Input from '../Input'
 import Select from '../Select'
 import {ScopeProvider} from '@helpscout/hsds-react/components/styled'
-import {DevToolsUI, HeaderUI, FooterUI} from './DevTools.css'
+import {DevToolsUI, FormBlock, HeaderUI, FooterUI} from './DevTools.css'
 
 export class DevTools extends React.PureComponent {
   static defaultProps = {
@@ -194,17 +194,17 @@ export class DevTools extends React.PureComponent {
                 </FormSection>
 
                 <FormSection title="Other Actions">
-                  <Label>
+                  <FormBlock>
                     <Button onClick={toggleTranslation}>
                       Translation Labels
                     </Button>
-                  </Label>
-                  <Label>
+                  </FormBlock>
+                  <FormBlock>
                     <Button onClick={logout}>Logout</Button>
-                  </Label>
-                  <Label>
+                  </FormBlock>
+                  <FormBlock>
                     <Button onClick={resetBeacon}>Reset Beacon</Button>
-                  </Label>
+                  </FormBlock>
                 </FormSection>
               </div>
             </DevToolsUI>

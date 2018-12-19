@@ -192,3 +192,12 @@ export const toggleTranslation = state => {
     showTranslation: !state.showTranslation,
   }
 }
+
+export const toggleMinimize = state => {
+  const nextState = {...state, isMinimized: !state.isMinimized}
+  saveState(nextState)
+
+  return {
+    isMinimized: !state.isMinimized,
+  }
+}

@@ -1,10 +1,12 @@
 import {connect} from '../../store'
 import Modal from '../Modal'
-import {updateSizePosition} from '../../actions'
+import {toggleMinimize, updateSizePosition} from '../../actions'
 
 const mapStateToProps = state => {
-  const {x, y, height, width, zIndex} = state
+  const {isMinimized, x, y, height, width, zIndex} = state
   return {
+    isOpen: !isMinimized,
+    withMinimize: true,
     x,
     y,
     height,
@@ -14,6 +16,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
+  onToggleMinimize: toggleMinimize,
   updateSizePosition,
 }
 

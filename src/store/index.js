@@ -12,6 +12,7 @@ export const initialState = {
   displayText: 'Hello',
   style: 'icon',
   iconImage: 'message',
+  isMinimized: false,
   x: 40,
   y: 40,
   width: 320,

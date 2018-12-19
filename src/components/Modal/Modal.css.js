@@ -2,21 +2,7 @@ import styled from '@helpscout/hsds-react/components/styled'
 import CloseButton from '@helpscout/hsds-react/components/CloseButton'
 
 export const FrameUI = styled('div')`
-  --BlueConfigGlobalFontFamily: SFMono-Regular, Consolas, Liberation Mono, Menlo,
-    Courier, monospace;
-
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  background: black;
-  border-radius: 4px;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 16px rgba(0, 0, 0, 0.1),
-    0 8px 24px rgba(0, 0, 0, 0.2), 0 8px 24px 1px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-  color: white;
-  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier,
-    monospace;
-  font-size: 12px;
+  ${getFrameStyles};
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
@@ -83,4 +69,54 @@ export const CloseUI = styled(CloseButton)`
 `
 CloseUI.defaultProps = {
   seamless: true,
+}
+
+export const MinimizeUI = styled('button')`
+  ${getFrameStyles};
+  bottom: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  height: 32px;
+  left: 30px;
+  position: fixed;
+  width: 32px;
+  z-index: 999999999;
+
+  &:hover {
+    background: #222;
+  }
+  &:active {
+    background: black;
+  }
+`
+
+export const ModalContentWrapperUI = styled('div')`
+  opacity: 0;
+  transition: opacity 60ms linear;
+
+  ${({isOpen}) =>
+    isOpen &&
+    `
+    opacity: 1;
+  `}
+`
+
+function getFrameStyles() {
+  return `
+    --BlueConfigGlobalFontFamily: SFMono-Regular, Consolas, Liberation Mono, Menlo,
+    Courier, monospace;
+
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    background: black;
+    border-radius: 4px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 16px rgba(0, 0, 0, 0.1),
+      0 8px 24px rgba(0, 0, 0, 0.2), 0 8px 24px 1px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    color: white;
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier,
+      monospace;
+    font-size: 12px;
+  `
 }

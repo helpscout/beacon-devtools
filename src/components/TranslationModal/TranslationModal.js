@@ -10,7 +10,7 @@ export class TranslationModal extends React.PureComponent {
     labels: {},
     onLabelChange: () => undefined,
     toggleTranslation: () => undefined,
-    show: true,
+    isOpen: true,
   }
 
   handleOnChange = event => {
@@ -34,10 +34,9 @@ export class TranslationModal extends React.PureComponent {
   }
 
   render() {
-    if (!this.props.show) return null
-
     return (
       <Modal
+        isOpen={this.props.isOpen}
         title="Translations"
         zIndex={999}
         onClickClose={this.props.toggleTranslation}
@@ -50,9 +49,9 @@ export class TranslationModal extends React.PureComponent {
 }
 
 const mapStateToProps = state => {
-  const {labels, showTranslation} = state
+  const {isMinimized, labels, showTranslation} = state
 
-  return {labels, show: showTranslation}
+  return {isOpen: !isMinimized && showTranslation, labels}
 }
 
 const mapDispatchToProps = {

@@ -36,3 +36,8 @@ export const FooterUI = styled('div')`
   border-top: 1px solid rgba(255, 255, 255, 0.3);
   z-index: 1000;
 `
+
+export const FormBlock = styled('div')`
+  margin-top: 6px;
+  margin-bottom: 10px;
+`
