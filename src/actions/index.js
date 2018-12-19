@@ -10,6 +10,10 @@ export const updateBeaconId = (state, event, {isAutoOpen}) => {
   window.Beacon('destroy')
   window.Beacon('init', beaconId)
 
+  if (isAutoOpen) {
+    window.Beacon('open')
+  }
+
   const open = isAutoOpen ? true : state.open
   const nextState = {...state, beaconId, open}
 
