@@ -92,9 +92,7 @@ export class DevTools extends React.PureComponent {
       <Label>
         Beacon ID List
         <Select onChange={this.handleOnSelectUpdateBeaconId}>
-          <option disabled selected>
-            Select...
-          </option>
+          <option disabled>Select...</option>
           {beaconIds.map(({id, label}) => (
             <option value={id} key={id}>
               {label}
