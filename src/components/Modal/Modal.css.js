@@ -97,11 +97,13 @@ export const MinimizeUI = styled('button')`
 export const ModalContentWrapperUI = styled('div')`
   opacity: 0;
   transition: opacity 60ms linear;
+  pointer-events: none;
 
   ${({isOpen}) =>
     isOpen &&
     `
     opacity: 1;
+    pointer-events: auto;
   `}
 `
 
