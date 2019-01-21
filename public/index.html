@@ -47,6 +47,9 @@
         on Help Scout.
       </p>
     </div>
+    <script>
+      window.__BEACON_VERSION__ = '2.1';
+    </script>
     <script type="text/javascript">
       !(function(e, n) {
         ;(window.Beacon = n = function(e, n, d) {
@@ -62,7 +65,9 @@
       })(document, window.Beacon || function() {})
     </script>
     <script>
-      window.Beacon('init', 'aa90d610-923a-4528-95cc-934136cc7712')
+      var urlParams = new URLSearchParams(window.location.search);
+      var beaconId = urlParams.get('id') || 'aa90d610-923a-4528-95cc-934136cc7712';
+      window.Beacon('init', beaconId);
     </script>
     <!--
       This HTML file is a template.
