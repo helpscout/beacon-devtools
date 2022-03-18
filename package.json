@@ -50,7 +50,7 @@
     "@helpscout/wedux": "^0.0.11",
     "react-app-polyfill": "^0.2.0",
     "react-color": "2.14.1",
-    "react-rnd": "9.0.4"
+    "react-rnd": "10.3.5"
   },
   "devDependencies": {
     "@helpscout/prestart": "0.0.9",
