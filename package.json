@@ -42,7 +42,7 @@
     "not op_mini all"
   ],
   "peerDependencies": {
-    "react": "^16 || ^15",
+    "react": "^18 || ^17 || ^16 || ^15",
     "react-dom": "^16 || ^15"
   },
   "dependencies": {
